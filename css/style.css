@@ -1,3 +1,7 @@
+body{
+  background-color: orange;
+  color: green;
+}
 nav{
   border: 1px solid black;
   width: 100%;
@@ -9,7 +13,7 @@ nav h1{
 }
 
 a{
-  border: 1px solid orange;
+  border: 1px solid green;
   color: green;
   font-size: 20px;
   margin: 20px;
@@ -46,9 +50,11 @@ a{
   text-align: center;
 }
 
-.food{
+#mainimage{
   margin: 0 auto;
   display: block;
+  width: 100%;
+  height: 400px;
 }
 .videoreviews{
   width: 100%;

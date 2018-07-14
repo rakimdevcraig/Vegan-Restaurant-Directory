@@ -1,0 +1,12 @@
+let pics = ['css/img/chloe.jpg', 'css/img/taco.jpg', 'css/img/oasis.jpg', 'css/img/vgalaxy.jpg']
+let count = 0
+let previous = document.getElementById('back');
+
+for(i=0;i<pics.length; i++){
+}
+
+previous.addEventListener("click", function(){
+ // document.getElementById('carousel').style.backgroundImage = ('img/taco.jpg');
+ document.getElementById('carousel').style.background='url(css/img/taco.jpg)'
+
+});
