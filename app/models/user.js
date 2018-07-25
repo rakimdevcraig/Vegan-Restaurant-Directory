@@ -30,6 +30,15 @@ var userSchema = mongoose.Schema({
 
 });
 
+var restaurantsSchema = new mongoose.Schema({
+   name: String,
+   PhoneNumber: String,
+   address: String,
+   city: String,
+   menu: String,
+   ShortDescription: String   
+});
+
 // generating a hash
 userSchema.methods.generateHash = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);

@@ -8,16 +8,23 @@
     <h3>Testing</h3>
     <section class="display">
       <h3>Restaurants</h3>
+      <form class="" action="/restaurant" method="GET">
+      <input class="input" type="text" name="search" placeholder="Search.......">
+      <input id ="searchtxt" type="submit" value="Search">
+    </form>
       <ul class="restaurants">
+        <!--goes through the entire restaurants collection  -->
         <% for(var i=0; i<restaurants.length; i++) {%>
           <li class="item">
+            <!--finds all of the topics that i've specified  -->
             <span><%= restaurants[i].Name %></span>
             <span><%= restaurants[i].PhoneNumber %></span>
             <span><%= restaurants[i].Address %></span>
             <span><%= restaurants[i].City %></span>
-            <span><%= restaurants[i].Menu %></span>
+            <!-- <span><%= restaurants[i].Menu %></span> -->
             <span><%= restaurants[i].ShortDescription %></span>
-          </li>
+            <a href="<%= restaurants[i].Menu %>">menu</a>
+        </li>
         <% } %>
       </ul>
     </section>
