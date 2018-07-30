@@ -77,16 +77,7 @@ a{
   height: 300px;
   margin-left: 6%;
 }
-.botreview{
-  width: 100%;
-  border: 1px solid black;
-}
-.submitreview{
-  width: 100%;
-  border: 1px solid black;
-  text-align: center;
-  font-size: 20px;
-}
+
 
 footer{
   border: 1px solid black;
