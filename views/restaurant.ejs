@@ -21,13 +21,16 @@
             <span><%= restaurants[i].PhoneNumber %></span>
             <span><%= restaurants[i].Address %></span>
             <span><%= restaurants[i].City %></span>
-            <!-- <span><%= restaurants[i].Menu %></span> -->
             <span><%= restaurants[i].ShortDescription %></span>
             <a href="<%= restaurants[i].Menu %>">menu</a>
+            <span><%= restaurants[i].location.coordinates %></span>
+              <!--using dot notation to get an object's properties that's within an object  -->
         </li>
         <% } %>
       </ul>
     </section>
+
+
     <script src="main.js" type="text/javascript"></script>
   </body>
 </html>
