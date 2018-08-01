@@ -1,30 +1,22 @@
 body{
-  background-color: orange;
-  color: green;
+  margin: 0
 }
 nav{
   border: 1px solid black;
   width: 100%;
-}
-nav h1{
+  height: 55px;
   text-align: center;
-  font-size: 50px;
-  color: green;
+}
+
+nav ul li{
+  display: inline;
 }
 
 a{
-  border: 1px solid green;
-  color: green;
+  color: black;
   font-size: 20px;
   margin: 20px;
-}
-
-.home{
-  margin-left: 18%;
-}
-
-.mission{
-  border: 1px solid black;
+  text-decoration: none;
 }
 
 .help{
@@ -32,22 +24,27 @@ a{
   font-size: 25px;
 }
 
-.searchbar{
-  text-align: center;
-  border: 1px solid black;
-}
-
 .input{
   width: 40%;
+  border-radius: 20px
+
 }
 
 .carousel{
   border: 1px solid black;
-  height: 400px;
+  height: 500px;
   width: 100%;
+  background-image: url("img/maintest9.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
 }
 .carousel p{
   text-align: center;
+}
+
+.title{
+  color: white;
 }
 
 #mainimage{
@@ -55,6 +52,7 @@ a{
   display: block;
   width: 100%;
   height: 400px;
+  background-image: url("img/hero.jpg");
 }
 .videoreviews{
   width: 100%;
@@ -65,7 +63,7 @@ a{
 .videotitle{
   width: 100%;
   float: left;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   text-align: center;
   font-size: 20px;
 }
@@ -73,11 +71,15 @@ a{
 .videos{
   width: 25%;
   float: left;
-  border: 1px solid black;
   height: 300px;
   margin-left: 6%;
+  text-align: center;
 }
 
+.visitedPic{
+  height: 85%;
+  width: 100%;
+}
 
 footer{
   border: 1px solid black;

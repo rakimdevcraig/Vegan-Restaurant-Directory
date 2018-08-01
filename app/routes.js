@@ -11,7 +11,13 @@ module.exports = function(app, passport, db) {
   app.get('/test', function(req, res) {
     res.render('test.ejs');
   });
+
+  app.get('/searchpage', function(req, res) {
+    res.render('searchpage.ejs');
+  });
+
   //
+
 
   // app.get('/restaurant2', function(req, res) {
   //  let operation = {
@@ -47,55 +53,83 @@ module.exports = function(app, passport, db) {
         //     })
         // });
 
+        app.get("/restaurant", function(req, res){
+          let nameSearch = req.query.search
+          if (! nameSearch) {
+            nameSearch = {"$exists": "true"}
+          } else {
+          nameSearch = {$regex: req.query.search, $options: 'i'}
+          }
+          let search = { $and: [ {location: { $nearSphere: { $geometry: { type: "Point", coordinates: [ -71.057588, 42.357000 ] }, $maxDistance: 1609 * (req.query.distance ? req.query.distance : 100) } } }, {Name: nameSearch }]};
+          console.log("starting find");
+          console.log(req.query.distance + " " +  req.query.search );
+          console.log(JSON.stringify(search))
+        db.collection('restaurants').find(search).toArray((err, result) => {
+          // db.collection('restaurants').find({ $and: [ {location: { $nearSphere:
+          // { $geometry: { type: "Point", coordinates: [ -71.057588, 42.357000 ] }, $maxDistance: 1609 * (req.query.distance ? req.query.distance : 1) } } }, {Name: nameSearch} ]}).toArray((err, result) => {
+          console.log("restaurant"+result);
+          // goes into the database collection restaurants and GETS all of the data and turn it into an array
+          if (err) res.send (err);
+           console.log(err)
+          res.render('restaurant.ejs', {restaurants: result})
+        })
+      })
+
 
   // trying using a find
-  //   app.get("/restaurant1", function(req, res){
-  //   db.collection('restaurants').find({ location: { $nearSphere:
-  //   { $geometry: { type: "Point", coordinates: [ -73.93414657, 40.82302903 ] }, $maxDistance: 1609 } } })
-  //   .toArray((err, result) => {
-  //     console.log(res);
-  //     // goes into the database collection restaurants and GETS all of the data and turn it into an array
-  //     if (err) return console.log(err)
-  //     res.render('restaurant.ejs', {restaurants: result})
-  //   })
-  // })
-
-  // lng=-71.0671376&lat=42.3012096 home
-  // lng=-71.057588& lat=42.357000
-
-  // restaurant SECTION =========================
-  app.get('/restaurant', function(req, res) {
-    db.collection('restaurants').find().toArray((err, result) => {
+    app.get("/restaurant1", function(req, res){
+      console.log("starting find")
+    db.collection('restaurants').find({ location: { $nearSphere:
+    { $geometry: { type: "Point", coordinates: [ -71.057588, 42.357000 ] }, $maxDistance: 1609 } } }).toArray((err, result) => {
+      console.log("restaurant1"+result);
       // goes into the database collection restaurants and GETS all of the data and turn it into an array
-      if (err) return console.log(err)
+      if (err) res.send (err);
+       console.log(err)
       res.render('restaurant.ejs', {restaurants: result})
-      // renders or displays the information from th
     })
-  });
+  })
 
 
-  //   app.get("/restaurant", function(req, res){
-  // // if the user performs a search
-  //       if(req.query.search) {
-  //           db.collection('restaurants').find({Name: req.query.search}).toArray((err, result) =>{
-  //             // if they search through the restaurants collection using the name property, turn it to an array
-  //              if(err){
-  //                  console.log(res);
-  //              } else {  res.render("restaurant.ejs",{restaurants: result});
-  //              // render the results
-  //            }
-  //           });
-  //       } else {
-  //           // Get all restaurants from DB
-  //           db.collection('restaurants').find().toArray((err, result) =>{
-  //              if(err){
-  //                  console.log(err);
-  //              } else {
-  //                 res.render("restaurant.ejs",{restaurants: result});
-  //              }
-  //           });
-  //       }
-  //     })
+
+    app.get("/restaurantold", function(req, res){
+  // if the user performs a search
+    console.log("starting find")
+        if(req.query.search) {
+            db.collection('restaurants').find({Name: req.query.search}).toArray((err, result) =>{
+              // if they search through the restaurants collection using the name property, turn it to an array
+               if(err){
+                   console.log(res);
+               } else {  res.render("restaurant.ejs",{restaurants: result});
+               // render the results
+             }
+            });
+        } else {
+            // Get all restaurants from DB
+            db.collection('restaurants').find().toArray((err, result) =>{
+               if(err){
+                   console.log(err);
+               } else {
+                  res.render("restaurant.ejs",{restaurants: result});
+               }
+            });
+        }
+      })
+      // lng=-71.0671376&lat=42.3012096 home
+      // lng=-71.057588& lat=42.357000
+
+      // app.get("/restaurant1", function(req, res){
+      //   console.log("restaurant1")
+      // })
+
+      // // restaurant SECTION =========================
+      // app.get('/restaurant', function(req, res) {
+      //   db.collection('restaurants').find().toArray((err, result) => {
+      //     // goes into the database collection restaurants and GETS all of the data and turn it into an array
+      //     if (err) return console.log(err)
+      //     res.render('restaurant.ejs', {restaurants: result})
+      //     // renders or displays the information from th
+      //   })
+      // });
 
   // // restaurant SECTION brings up just the restaurants =========================
   // app.get('/restaurant', function(req, res) {
