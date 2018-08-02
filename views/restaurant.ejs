@@ -13,22 +13,22 @@
       <ul>
       <li><a class="home" href="#">Home</a></li>
       <li><a href="#">Events</a></li>
-      <li><a href="/restaurant">Restaurants</a></li>
+      <li><a href="/restaurant">Restaurant Directory</a></li>
       <li><a href="#map">map</a></li>
     </ul>
     </nav>
     <section class="display">
-      <h3>Restaurants</h3>
+      <h1 class="title">Restaurants</h1>
       <form class="" action="/restaurant" method="GET">
       <input class="input" type="text" name="search" placeholder="Search.......">
       <input id ="searchtxt" type="submit" value="Search">
       <select class="" name="distance" onchange="this.form.submit()">
         <option value="">All Restaurants</option>
-        <option value="1">1 mile</option>
-        <option value="2">2 miles</option>
-        <option value="3">3 miles</option>
-        <option value="4">4 miles</option>
-        <option value="5">5 miles</option>
+        <option value="1">Within 1 mile</option>
+        <option value="2">Within 2 miles</option>
+        <option value="3">Within 3 miles</option>
+        <option value="4">Within 4 miles</option>
+        <option value="5">Within 5 miles</option>
       </select>
     </form>
 
@@ -36,17 +36,7 @@
       <ul class="restaurants">
         <!--goes through the entire restaurants collection  -->
         <% for(var i=0; i<restaurants.length; i++) {%>
-          <li class="item">
-            <!--finds all of the properties that i've specified and renders them -->
-            <!-- <span><%= restaurants[i].Name %></span>
-            <span><%= restaurants[i].PhoneNumber %></span>
-            <span><%= restaurants[i].Address %></span>
-            <span><%= restaurants[i].City %></span>
-            <span><%= restaurants[i].ShortDescription %></span>
-            <a href="<%= restaurants[i].Menu %>">menu</a>
-            <span><%= restaurants[i].location.coordinates %></span> -->
-              <!--using dot notation to get an object's properties that's within an object  -->
-        </li>
+
         <div class="col-lg-12 col-md-12">
           <div class="listing-item-container list-layout">
             <a href="listings-single-page.html" class="listing-item">
@@ -61,9 +51,14 @@
               <div class="listing-item-content">
                 <div class="listing-item-inner">
                   <h3><%= restaurants[i].Name %></h3>
-                  <span><%= restaurants[i].Address %></span>
-                  <div class="star-rating" data-rating="3.5">
-                  </div>
+                  <span><%= restaurants[i].Address %></span><br>
+                  <!-- <a href="<%= restaurants[i].Menu %>">menu</a> -->
+                  <span><%= restaurants[i].Menu %></span><br>
+                  <span><%= restaurants[i].PhoneNumber %></span><br>
+                  <span><%= restaurants[i].Hours %></span><br>
+                  <span><%= restaurants[i].ShortDescription %></span>
+
+
                 </div>
 
               </div>

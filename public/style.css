@@ -1,3 +1,7 @@
+box-sizing: border-box;
+
+
+
 body{
   margin: 0
 }
@@ -24,15 +28,75 @@ a{
   font-size: 25px;
 }
 
+.wtf{
+  float: left;
+  width: 100%;
+  height: 300px;
+  border: 1px solid black;
+}
+
+.information{
+  height: 300px;
+  width: 100%;
+  border: 1px solid black;
+  float: left;
+}
+
+.leftInfo{
+  float: left;
+  width: 60%;
+  height: 300px;
+  border: 1px solid black;
+}
+
+rightInfo{
+  float: left;
+  width: 40%;
+  height: 300px;
+  border: 1px solid black;
+
+}
+
+.gallery{
+  height: 300px;
+  width: 100%;
+  float: left;
+  border: 1px solid black;
+}
+
+.galleryimg{
+  height: 300px;
+  width: 25%;
+  float: left;
+  border: 1px solid black;
+}
+
 .input{
   width: 40%;
-  border-radius: 20px
+  border-radius: 50px;
+  height: 49px;
+  width: 870px;
+  border: 1px solid #dbdbdb;
+  padding-left: 10px;
+}
 
+.distance{
+  width: 100%;
+}
+
+.submit {
+  background-color: #f91942;
+  height: 55px;
+  width: 90px;
+  border-radius: 50px;
+  font-weight: bold;
+  color: white;
+  border: 0;
 }
 
 .carousel{
   border: 1px solid black;
-  height: 500px;
+
   width: 100%;
   background-image: url("img/maintest9.jpg");
   background-repeat: no-repeat;
@@ -41,6 +105,26 @@ a{
 }
 .carousel p{
   text-align: center;
+}
+
+.listing{
+  margin-top: 30px;
+  float: left;
+  height: 300px;
+  width: 100%;
+  border: 1px solid black;
+  clear: both;
+}
+.listImg{
+  width: 35%;
+  float: left;
+  height: 300px;
+}
+
+.listinfo{
+  width: 65%;
+  float: left;
+  height: 300px;
 }
 
 .title{

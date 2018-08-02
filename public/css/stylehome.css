@@ -1,14 +1,86 @@
 @charset "UTF-8";
 
+/*
+* Author: Vasterad
+* URL: http://purethemes.net
+*/
 
-.title{
-	text-align: center;
-}
+/* ------------------------------------------------------------------- */
+/* Table of Contents
+----------------------------------------------------------------------
+
+	01. Import Section ...................... Imported variables.
+
+	02. Layout Components ................... Generic layout elements.
+		# Forms Reset & Styles
+		# Header
+		# Sticky Header
+		# Back to top
+		# Navigation
+		# User Menu
+		# mmenu.js - mobile menu
+		# Main Search Container
+		# Range Slider
+		# Chosen Plugin
+		# Sort by custom select
+		# Custom Chosen Dropdown
+		# Input with dropdown
+		# Panel Dropdown
+		# Booking Page
+		# Single Listing Page
+		# Contact Page
+		# Coming Soon Page
+		# Blog Styles
+		# Listing Item Layout Style
+		# Small Category Boxes
+		# Titlebar
+
+	03. Shortcodes .......................... Template elements.
+		# Buttons
+		# Tables
+		# Accordion / Toggles
+		# Share Buttons
+		# Post Navigation
+		# Pricing Tables
+		# List Styles
+		# Tooltips
+		# Info Box
+		# Notification Boxes
+		# Testimonials
+		# Tabs
+		# Login Register
+		# Social Icons
+		# Custom Checkboxes
+
+	04. Dashboard ........................... User panel styles
+		# Dashboard Navigation
+		# Dashboard Titlebar
+		# Dashboard Stats Boxes
+		# Dashboard Pagination
+		# Dashboard List Box
+		# Add Listing
+		# Opening Hours
+		# Pricing
+
+	05. Script Styles ....................... jQuery add-ons CSS.
+		# Google Maps
+		# Dropzone
+		# Magnific Popup
+		# Parallax Background
+		# Slick Carousel
+
+	05. Others .............................. CSS helper classes etc.
+		# Common Styles
+		# Offsets
+
+	06. Media Queries ....................... Mobile style sheets.
+
+*/
 
 
 /* ------------------------------------------------------------------- */
 /* 01. Import Section
-/* ---------------------------------------------------------------------- */
+---------------------------------------------------------------------- */
 @import url("bootstrap-grid.css");					/* Default Reset, Typography, Forms, Responsive Grid etc. */
 @import url("icons.css");							/* Webfont Icons: FontAwesome, Line, Simple Line */
 @import url("plugins/revolutionslider.css");		/* Revolution Slider Style Sheets */
@@ -41,7 +113,7 @@ select {
 	max-width: 100%;
 	width: 100%;
 	box-sizing: border-box;
-	/* display: block; */
+	display: block;
 	background-color: #fff;
 	border: 1px solid #dbdbdb;
 	box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.06);
@@ -50,22 +122,20 @@ select {
 	border-radius: 3px;
 }
 
-
-/*
 select {
 	padding: 15px 18px;
 	cursor: pointer;
-} */
+}
 
-/* input {
+input {
 	-webkit-transition: all 0.1s ease-in-out;
 	-moz-transition: all 0.1s ease-in-out;
 	-o-transition: all 0.1s ease-in-out;
 	-ms-transition: all 0.1s ease-in-out;
 	transition: all 0.1s ease-in-out;
-} */
+}
 
-/* input:focus,
+input:focus,
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus,
@@ -76,7 +146,7 @@ textarea:focus {
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.07);
 	border: 1px solid #d8d8d8;
 	opacity: 1;
-} */
+}
 
 input[type="submit"] {
   border: none;
@@ -84,13 +154,14 @@ input[type="submit"] {
   width: auto;
 }
 
+input[type="checkbox"] { display: inline; }
 
-/* input[type="radio"] {
+input[type="radio"] {
 	width: 15px;
 	height: 15px;
 	cursor: pointer;
 	box-shadow: none;
-} */
+}
 input.input{
 	width: 65%;
   border-radius: 30px;
@@ -125,33 +196,33 @@ textarea {
 	min-width: 100%;
 }
 
-/* label,
+label,
 legend {
 	display: block;
 	font-weight: bold;
 	font-size: 15px;
 	font-weight: normal;
 	margin-bottom: 8px;
-} */
+}
 
 
-/* label span,
+label span,
 legend span {
 	font-weight: normal;
 	font-size: 14px;
 	color: #444;
-} */
+}
 
-/* fieldset {
+fieldset {
     padding: 0;
     border: none;
-} */
+}
 
 
-/* a, button { outline: none !important; }
+a, button { outline: none !important; }
 a:focus,
 a:hover { text-decoration: none; color: #333;}
-img { max-width: 100%; } */
+img { max-width: 100%; }
 
 
 /* ---------------------------------- */
