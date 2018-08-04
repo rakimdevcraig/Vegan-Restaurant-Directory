@@ -11,47 +11,55 @@
   <nav class="nav">
     <ul>
       <li><a class="home" href="">Home</a></li>
-      <li><a href="#">Events</a></li>
+      <!-- <li><a href="#">Events</a></li> -->
       <li><a href="/restaurant">Restaurants</a></li>
-      <li><a href="#map">map</a></li>
+      <li><a href="#map">Locator</a></li>
     </ul>
   </nav>
-
   <section id="carousel" class="carousel">
     <!-- <img id="mainimage" class="mainimage" src="img/hero.jpg" alt="food"> -->
-    <h1 class="find">Find Nearby Restaurants</h1>
-    <form class="" action="/restaurant" method="get">
-      <input class="input" type="text" name="search" placeholder="Search">
-      <input class="submit" type="submit" name="search" value="Search">
-    </form>
-  </section>
-  <section class="videoreviews">
-    <section class="videotitle" >
-      <p>Most Visited Restaurants</p>
+    <p class="find">Find Nearby Restaurants</p>
+    <form class="" action="/restaurant" method="GET">
+      <input class="input" type="text" name="search" placeholder="Search.......">
+      <input class="submit" type="submit" value="Search">
+      <select class="distance" name="distance" onchange="this.form.submit()">
+        <option value="">All Restaurants</option>
+        <option value="1">Within 1 mile</option>
+        <option value="2">Within 2 miles</option>
+        <option value="3">Within 3 miles</option>
+        <option value="4">Within 4 miles</option>
+        <option value="5">Within 5 miles</option>
+      </select>
     </section>
-    <section class="videos">
-      <img class="visitedPic" src="img/oasis.jpg" alt="oasis">
-      <a href="#">Oasis Veggie Parlor</a>
+    <section class="videoreviews">
+      <section class="videotitle" >
+        <p class="most">Most Visited Restaurants</p>
+      </section>
+      <section class="videos">
+        <img class="visitedPic" src="img/oasis.jpg" alt="oasis">
+        <a href="/detail?id=5">Oasis Veggie Parlor</a>
+      </section>
+      <section class="videos">
+        <img class="visitedPic" src="img/chloe.jpg" alt="chloe's">
+        <a href="/detail?id=8">by CHLOE</a>
+      </section>
+      <section class="videos">
+        <img class="visitedPic" src="img/vgalaxy.jpg" alt="veggalaxy">
+        <a href="/detail?id=10">Veggie Galaxy</a>
+      </section>
     </section>
-    <section class="videos">
-      <img class="visitedPic" src="img/chloe.jpg" alt="chloe's">
-      <a href="#">by CHLOE</a>
+
+    <p class="mapTitle">My Google Map</p>
+    <section class="mapContainer">
+      <section id="map"></section>
     </section>
-    <section class="videos">
-      <img class="visitedPic" src="img/vgalaxy.jpg" alt="veggalaxy">
-      <a href="#">Veggie Galaxy</a>
-    </section>
-  </section>
 
-  <h1>My Google Map</h1>
-  <section id="map"></section>
-
-  <footer>
-    <span class="copyright">&copy Copyright Rakim Craig 2018</span>
-  </footer>
-</body>
+    <footer>
+      <span class="copyright">&copy Copyright Rakim Craig 2018</span>
+    </footer>
+  </body>
 
 
-<script src="main.js" type="text/javascript"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlmkeEGX5dm_msidT3HvAEnztfEj5oTaA&libraries=places&callback=initMap"async defer></script>
-</html>
+  <script src="main.js" type="text/javascript"></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlmkeEGX5dm_msidT3HvAEnztfEj5oTaA&libraries=places&callback=initMap"async defer></script> -->
+  </html>

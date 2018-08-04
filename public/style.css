@@ -1,6 +1,28 @@
-box-sizing: border-box;
+*{
+  box-sizing: border-box;
+}
+.test{
+  height: 300px;
+  width: 100%;
+  border: 1px solid black;
 
+  float: left;
+}
 
+.test1{
+  background-color: #f7f7f7;
+  width: 70%;
+  float: left;
+}
+
+.test2{
+  width: 30%;
+  float: left;
+}
+
+h1{
+  font-weight: lighter;
+}
 
 body{
   margin: 0
@@ -10,14 +32,39 @@ nav{
   width: 100%;
   height: 55px;
   text-align: center;
+  /* position: fixed;
+  background: white; */
 }
 
 nav ul li{
   display: inline;
 }
 
+nav a{
+  color: #444
+}
+nav a:hover{
+  color:#f91942
+}
+
+.find{
+  font-size: 32px;
+  color: white;
+}
+.searchPortal{
+  height: 200px;
+  width: 100%;
+  float: left;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.directory{
+  text-align: center;
+  font-size: 32px;
+}
+
 a{
-  color: black;
   font-size: 20px;
   margin: 20px;
   text-decoration: none;
@@ -27,6 +74,8 @@ a{
   text-align: center;
   font-size: 25px;
 }
+
+
 
 .wtf{
   float: left;
@@ -47,14 +96,16 @@ a{
   width: 60%;
   height: 300px;
   border: 1px solid black;
+  text-align: center;
 }
 
-rightInfo{
+.rightInfo{
   float: left;
   width: 40%;
   height: 300px;
   border: 1px solid black;
-
+  position: fixed;
+  left: 842px;
 }
 
 .gallery{
@@ -78,10 +129,26 @@ rightInfo{
   width: 870px;
   border: 1px solid #dbdbdb;
   padding-left: 10px;
+  margin-left: 230px;
 }
 
 .distance{
-  width: 100%;
+  border: 1px solid #dbdbdb;
+  border-radius: 50px;
+  height: 49px;
+  width: 140px;
+  position: relative;
+  right: 580px;
+}
+
+.searchImg{
+  padding-left: 195px;
+  height: 157px;
+  /* width: 235.891px; */
+}
+
+.restTitle{
+  margin-bottom: 0px;
 }
 
 .submit {
@@ -92,13 +159,15 @@ rightInfo{
   font-weight: bold;
   color: white;
   border: 0;
+  right: 94px;
+  position: relative;
 }
 
 .carousel{
   border: 1px solid black;
-
+  height: 500px;
   width: 100%;
-  background-image: url("img/maintest9.jpg");
+  background-image: url("img/hero.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
@@ -127,6 +196,28 @@ rightInfo{
   height: 300px;
 }
 
+.restInfo{
+  float: left;
+  height: 300px;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.restInfoImg{
+  float: left;
+  height: 300px;
+  width: 30%;
+  border: 1px solid black;
+}
+
+.restInfoText{
+  float: left;
+  height: 300px;
+  width:70%;
+  border: 1px solid black;
+}
+
+
 .title{
   color: white;
 }
@@ -138,10 +229,30 @@ rightInfo{
   height: 400px;
   background-image: url("img/hero.jpg");
 }
+
+.most{
+  border-bottom: 1px solid black;
+  font-size: 32px;
+
+}
+
+.restGallery{
+  width: 60%;
+  border: 1px solid black;
+  background-color: #f7f7f7;
+  float: left;
+}
+
+.topDishes{
+  text-align: center;
+  font-weight:lighter;
+}
+
 .videoreviews{
   width: 100%;
   height: 400px;
   border: 1px solid black;
+  background-color: #f7f7f7
 }
 
 .videotitle{
@@ -158,11 +269,23 @@ rightInfo{
   height: 300px;
   margin-left: 6%;
   text-align: center;
+  background-color: #f7f7f7
 }
 
+.detailImg{
+  width: 270px;
+  height: 170px;
+}
 .visitedPic{
   height: 85%;
   width: 100%;
+}
+
+.review{
+  height: 400px;
+  width: 100%;
+  float: left;
+  border: 1px solid black;
 }
 
 footer{
@@ -175,7 +298,17 @@ footer{
   font-size: 20px;
 }
 
-#map{
+.mapTitle{
+  text-align: center;
+  font-size: 32px;
+}
+
+.mapContainer{
+  float: left;
+  width: 100%;
   height: 400px;
+}
+#map{
+  height: 100%;
   width: 100%;
 }
