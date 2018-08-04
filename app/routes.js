@@ -24,7 +24,6 @@ module.exports = function(app, passport, db) {
   });
 })
 
-// findOne({"_id": {"$oid": "5b53f3bee7179a0da54618ee"}}
 
 
 

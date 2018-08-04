@@ -10,18 +10,15 @@
 <body>
   <nav class="nav">
     <ul>
-      <li><a class="home" href="">Home</a></li>
-      <!-- <li><a href="#">Events</a></li> -->
+      <li><a class="home" href="/">Home</a></li>
       <li><a href="/restaurant">Restaurants</a></li>
       <li><a href="#map">Locator</a></li>
     </ul>
   </nav>
   <section id="carousel" class="carousel">
-    <!-- <img id="mainimage" class="mainimage" src="img/hero.jpg" alt="food"> -->
     <p class="find">Find Nearby Restaurants</p>
     <form class="" action="/restaurant" method="GET">
       <input class="input" type="text" name="search" placeholder="Search.......">
-      <input class="submit" type="submit" value="Search">
       <select class="distance" name="distance" onchange="this.form.submit()">
         <option value="">All Restaurants</option>
         <option value="1">Within 1 mile</option>
@@ -30,6 +27,8 @@
         <option value="4">Within 4 miles</option>
         <option value="5">Within 5 miles</option>
       </select>
+      <input class="submit" type="submit" value="Search">
+      </form>
     </section>
     <section class="videoreviews">
       <section class="videotitle" >
@@ -61,5 +60,5 @@
 
 
   <script src="main.js" type="text/javascript"></script>
-  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlmkeEGX5dm_msidT3HvAEnztfEj5oTaA&libraries=places&callback=initMap"async defer></script> -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlmkeEGX5dm_msidT3HvAEnztfEj5oTaA&libraries=places&callback=initMap"async defer></script>
   </html>
