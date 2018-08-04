@@ -39,7 +39,7 @@ module.exports = function(app, passport, db) {
           nameSearch = {$regex: req.query.search, $options: 'i'}
           // search by name $options makes it a regex? the 'i' ignores case sensitivity so you can search without having to type all capitals
           }
-          let search = { $and: [ {location: { $nearSphere: { $geometry: { type: "Point", coordinates: [ -71.057588, 42.357000 ] }, $maxDistance: 1609 * (req.query.distance ? req.query.distance : 100) } } }, {Name: nameSearch }]};
+          let search = { $and: [ {location: { $nearSphere: { $geometry: { type: "Point", coordinates: [ -71.0638, 42.2843 ] }, $maxDistance: 1609 * (req.query.distance ? req.query.distance : 100) } } }, {Name: nameSearch }]};
           //the $and operator allows us to combine queries so we can search by name and by location
           // $nearsphere makes a circle and we get to search for points on an imaginary map which are restaurants and we search for a max distance which is in meters
           // 1609 is in meters and that's 1 mile we give the user the option to search the distance from 1-5 miles from the coordinates which is 50 milk street
