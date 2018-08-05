@@ -23,9 +23,17 @@ module.exports = function(app, passport, db) {
     res.render('restaurantdetail.ejs', {restaurant: result})
   });
 })
+// =============================================================================================================================
+// ==================================================reviews=================================================================
+// app.get('/detail1', function(req, res) {
+//   console.log("msg")
+//   db.collection('piperi').find({name: req.body.name, msg: req.body.msg,},(err, result) => {
+//   console.log(err, result)
+//   res.render('restaurantdetail.ejs', {restaurant: result})
+// });
+// })
 
-
-
+// =========================================================================================================================
 
 // ====================Search for restaurant by name and/or by location==============================================================
 
@@ -103,14 +111,6 @@ app.post('/messages', (req, res) => {
 
 
 
-// ========================== individual restaurants ==============================================
-app.get('/restaurantdetail', function(req, res) {
-  // db.collection('restaurants').find(search).toArray((err, result) => {
-  //   if (err) res.send (err);
-  //    console.log(err)
-  res.render('restaurantdetail.ejs');
-});
-// ========================== individual restaurants ==============================================
 
 
 
@@ -120,32 +120,7 @@ app.get('/restaurantdetail', function(req, res) {
     res.redirect('/');
   });
 
-  // // comment board routes ===============================================================
-  //
-  //     // This is the collection for customer orders
-  //     app.post('/cashier', (req, res) => {
-  //       db.collection('messages').save({type:req.body.type, size: req.body.size, quantity: req.body.quantity, other:req.body.other, name:req.body.name, complete: false }, (err, result) => {
-  //         if (err) return console.log(err)
-  //         console.log('saved to database')
-  //         res.redirect('/menu')
-  //       })
-  //     })
-  //
-  //     // to add more restaurants check order complete
-  //     app.put('/barista', (req, res) => {
-  //       db.collection('messages')
-  //       .findOneAndUpdate({type:req.body.type, size: req.body.size, quantity: req.body.quantity, other:req.body.other, name:req.body.name, complete: false }, {
-  //         $set: {
-  //           complete: true
-  //         }
-  //       }, {
-  //         sort: {_id: -1},
-  //         upsert: true
-  //       }, (err, result) => {
-  //         if (err) return res.send(err)
-  //         res.send(result)
-  //       })
-  //     })
+
 
   // Will delete from customerOrder collections
   app.delete('/remove', (req, res) => {
