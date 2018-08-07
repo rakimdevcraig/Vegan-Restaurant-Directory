@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form action="/messages" method="POST">
+      <input type="text"  name="name">
+      <input type="text" placeholder="Add your review" name="msg">
+      <button type="submit">Submit</button>
+    </form>
+    <div class="">
+
+    <ul class="messages">
+      <% for(var i=0; i<piperi.length; i++) {%>
+        <li class="quote">
+          <span><%= piperi[i].msg %></span>
+        </li>
+      <% } %>
+    </ul>
+  </div>
+  </body>
+</html>
