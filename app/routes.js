@@ -5,50 +5,36 @@ module.exports = function(app, passport, db) {
   // show the home page
   app.get('/', function(req, res) {
     res.render('index.ejs');
+    console.log(res);
   });
 
 
 
 
 // testing just to make sure i can render piperi database
-  app.get('/messages', (req, res) => {
-    db.collection('piperi').find().toArray((err, result) => {
-      console.log(err, result)
-      if (err) return console.log(err)
-      res.render('test.ejs', {piperi: result})
-    })
-  })
-
-  //======================== Bring up each individual restaurant page by restaurant ID ===========================================
-
-  // app.get('/detail', function(req, res) {
-  //   let id = req.query.id
-  //   console.log("restID="+ id)
-  //   db.collection('restaurants').findOne({"RestId": id},(err, result) => {
-  //     if (!result) {
-  //       console.log(err, result)
-  //       db.collection('piperi').find().toArray((err, results) => {
-  //         console.log(err,result)
-  //         if(err) throw err;
-  //         if (!result) {
-  //           res.render('restaurantdetail.ejs', {restaurant: result, piperi: results})
-  //         }
-  //       })
-  //     };
+  // app.get('/messages', (req, res) => {
+  //   db.collection('piperi').find().toArray((err, result) => {
+  //     console.log(err, result)
+  //     if (err) return console.log(err)
+  //     res.render('test.ejs', {piperi: result})
   //   })
   // })
 
-// ================================renders information for each individual restaurant ========================================//
+
+
+// ================================renders information for each individual restaurant & renders all of the comments currently ========================================//
   app.get('/detail', function(req, res) {
    let id = req.query.id
    console.log("restID="+ id)
    db.collection('restaurants').findOne({"RestId": id },(err, result) => {
    console.log(err, result)
-   res.render('restaurantdetail.ejs', {restaurant: result})
+   db.collection('piperi').find().toArray((er, r) => {
+   res.render('restaurantdetail.ejs', {restaurant: result, piper: r})
+ })
  });
 })
 
-// ================================renders information for each individual restaurant ========================================//
+// =================================================================================== ========================================//
 
 
 
@@ -65,7 +51,7 @@ module.exports = function(app, passport, db) {
       nameSearch = {$regex: req.query.search, $options: 'i'}
       // search by name $options makes it a regex? the 'i' ignores case sensitivity so you can search without having to type all capitals
     }
-    let search = { $and: [ {location: { $nearSphere: { $geometry: { type: "Point", coordinates: [ -71.0638, 42.2843 ] }, $maxDistance: 1609 * (req.query.distance ? req.query.distance : 100) } } }, {Name: nameSearch }]};
+    let search = { $and: [ {location: { $nearSphere: { $geometry: { type: "Point", coordinates: [ -71.057588, 42.357000 ] }, $maxDistance: 1609 * (req.query.distance ? req.query.distance : 100) } } }, {Name: nameSearch }]};
     //the $and operator allows us to combine queries so we can search by name and by location
     // $nearsphere makes a circle and we get to search for points on an imaginary map which are restaurants and we search for a max distance which is in meters
     // 1609 is in meters and that's 1 mile we give the user the option to search the distance from 1-5 miles from the coordinates which is 50 milk street
@@ -78,33 +64,10 @@ module.exports = function(app, passport, db) {
     })
   })
 
-  //---------------------------test------------------------------------
+// ================================================================================================================================================
 
-  // app.post('/messages', (req, res) => {
-  //   db.collection('restaurants').save({name: req.body.name, msg: req.body.msg, thumbUp: 0, bigMad:0}, (err, result) => {
-  //     if (err) return console.log(err)
-  //     console.log('saved to database')
-  //     res.redirect('/')
-  //   })
-  // })
-  //
-  // app.put('/messages', (req, res) => {
-  //   db.collection('restaurants')
-  //   .findOneAndUpdate({name: req.body.name, msg: req.body.msg}, {
-  //     $set: {
-  //       thumbUp:req.body.thumbUp + 1
-  //     }
-  //   }, {
-  //     sort: {_id: -1},
-  //     upsert: true
-  //   }, (err, result) => {
-  //     if (err) return res.send(err)
-  //     res.send(result)
-  //   })
-  // })
-
-  // ================================review section ====================================================================
-  app.post('/messages', (req, res) => {
+  // ================================form that reviews are posted thry ====================================================================
+  app.post('/detail1', (req, res) => {
     db.collection('piperi').save({name: req.body.name, msg: req.body.msg}, (err, result) => {
       if (err) return console.log(err)
       console.log('saved to database')
@@ -112,19 +75,17 @@ module.exports = function(app, passport, db) {
     })
   })
 
+// ================================================================================================================================
 
-
-  // =========================================================================================================
-
-
-
-
-
-
-
-
-
-
+// =================================== search ===============================================
+app.get('/stest', function(req, res) {
+    db.collection('restaurants').find().toArray((err, result) => {
+      // goes into the database collection restaurants and GETS all of the data and turn it into an array
+      if (err) return console.log(err)
+      res.render('searchtest.ejs', {restaurants: result})
+      // renders or displays the information from th
+    })
+});
   //----------------------------------------------------------------
 
 
