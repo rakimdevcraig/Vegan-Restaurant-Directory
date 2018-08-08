@@ -28,8 +28,11 @@ module.exports = function(app, passport, db) {
    console.log("restID="+ id)
    db.collection('restaurants').findOne({"RestId": id },(err, result) => {
    console.log(err, result)
-   db.collection('piperi').find().toArray((er, r) => {
+   db.collection('reviews').find({"RestId": id }).toArray((er, r) => {
+     // getting comments from the comments database this is nested inside the other find so i'm making an asynchronous request
+     // we do it as a find and we find everything that matches up with the restid of the page that we're on
    res.render('restaurantdetail.ejs', {restaurant: result, piper: r})
+   // render the information back from the restaurant database and the comments
  })
  });
 })
@@ -66,12 +69,14 @@ module.exports = function(app, passport, db) {
 
 // ================================================================================================================================================
 
-  // ================================form that reviews are posted thry ====================================================================
+  // ================================form that reviews are posted thru ====================================================================
   app.post('/detail1', (req, res) => {
-    db.collection('piperi').save({name: req.body.name, msg: req.body.msg}, (err, result) => {
+    db.collection('reviews').save({name: req.body.name, msg: req.body.msg, RestId: req.body.RestId}, (err, result) => {
+      // sends the name the review and the restaurant ID to the database so that each document can be found later on by restaurant ID when I want to render
       if (err) return console.log(err)
       console.log('saved to database')
-      res.render('restaurantdetail.ejs')
+      res.redirect("/detail?id=" + req.body.RestId)
+      // redirects after submitting the form to the detail?id= + the id of whichever page you were on the ID is found by the form you submit
     })
   })
 
@@ -82,7 +87,7 @@ app.get('/stest', function(req, res) {
     db.collection('restaurants').find().toArray((err, result) => {
       // goes into the database collection restaurants and GETS all of the data and turn it into an array
       if (err) return console.log(err)
-      res.render('searchtest.ejs', {restaurants: result})
+      res.redirect('searchtest.ejs', {restaurants: result})
       // renders or displays the information from th
     })
 });
