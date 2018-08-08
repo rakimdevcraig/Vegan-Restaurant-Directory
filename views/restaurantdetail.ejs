@@ -47,12 +47,14 @@
     <form action="/detail1" method="POST">
       <input type="text" placeholder="Name"  name="name"> <br>
       <input type="text" placeholder="Add your review" name="msg">
+      <textarea name="comment" form="usrform">Enter text here...</textarea>
       <input type="hidden" name="RestId" value="<%= restaurant.RestId %>">
       <!--adding a RestId so that each message can be seperated depending on the restaurant  -->
+      <!-- input type hides it from the client side but each time a form is posted the rest id will be posted -->
       <button type="submit">Submit</button>
     </form>
     <% for(var i=0; i<piper.length; i++) {%>
-        <!-- <section class="comments" > -->
+        <!-- <making a loop through all of the comments > -->
           <ul>
             <li><span><%= piper[i].name %></span><br></li>
           <li><span><%= piper[i].msg %></span><br></li>

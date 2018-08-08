@@ -2,13 +2,18 @@
   box-sizing: border-box;
 }
 .test{
-  width: 100%;
+  width: 80%;
   background-color: #f7f7f7;
   float: left;
+  margin-bottom: 2%;
+  margin-left: 11%;
+}
+
+.test:hover {
+    /* background-color: #f91942; */
 }
 
 .test1{
-  background-color: #f7f7f7;
   width: 70%;
   float: left;
 }
@@ -23,6 +28,19 @@ body{
   margin: 0
 }
 
+.carousel ul li{
+  display: inline;
+}
+
+.carousel ul li a{
+  color: white;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.carousel a:hover{
+  color:#f91942
+}
 nav{
   width: 100%;
   text-align: center;
