@@ -9,9 +9,7 @@
   margin-left: 11%;
 }
 
-.test:hover {
-    /* background-color: #f91942; */
-}
+
 
 .test1{
   width: 70%;
@@ -38,9 +36,7 @@ body{
   margin-right: 15px;
 }
 
-.carousel a:hover{
-  color:#f91942
-}
+
 nav{
   width: 100%;
   text-align: center;
@@ -54,9 +50,7 @@ nav ul li{
 nav a{
   color: #444
 }
-nav a:hover{
-  color:#f91942
-}
+
 
 .find{
   font-size: 32px;
@@ -116,7 +110,7 @@ a{
 
 .rightInfo{
   float: left;
-  width: 45%;
+  width: 40%;
   height: 300px;
   position: fixed;
   left: 758px;
@@ -138,20 +132,21 @@ a{
 }
 
 .input{
-  border-radius: 50px;
   height: 49px;
-  width: 870px;
-  border: 1px solid #dbdbdb;
+  width: 600px;
   padding-left: 10px;
   margin-left: 170px;
 }
 
+.input:focus {
+background-color: white;
+}
+
 .distance{
-  border-radius: 50px;
   height: 49px;
   width: 140px;
   position: relative;
-  right: 500px;
+  right: 144px;
 }
 
 .searchImg{
@@ -165,16 +160,14 @@ a{
 }
 
 .submit {
-  background-color: #f91942;
-  height: 55px;
+  height: 49px;
   width: 90px;
-  border-radius: 50px;
-  font-weight: bold;
-  color: white;
-  border: 0;
   position: relative;
-  left: 403px;
-  bottom: 53px;
+  right: 149px;
+}
+
+.submit:hover {
+    cursor: pointer;
 }
 
 .carousel{
@@ -257,6 +250,11 @@ a{
 
 .detailImg{
   width: 100%;
+  height: 60%;
+}
+
+.feedback{
+list-style: none;
 }
 
 .topDishes{
@@ -304,7 +302,6 @@ a{
   height: 400px;
   width: 100%;
   float: left;
-  border: 1px solid black;
 }
 
 .comments{

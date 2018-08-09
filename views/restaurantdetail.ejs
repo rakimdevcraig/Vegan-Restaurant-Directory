@@ -20,7 +20,7 @@
       <h1><%= restaurant.Name %></h1>
       <p><%= restaurant.Address %></p>
       <p><%= restaurant.Hours %></p>
-      <a href="<%= restaurant.Menu %>">menu</a>
+      <a href="<%= restaurant.Menu %>">Menu</a>
       <p><%= restaurant.ShortDescription %></p>
     </section>
     <section class="rightInfo">
@@ -44,11 +44,10 @@
   </section>
   <section class="review">
     <h2>Add a Review</h2>
-    <form action="/detail1" method="POST">
+    <form id="red" action="/detail1" method="POST">
       <input type="text" placeholder="Name"  name="name"> <br>
-      <input type="text" placeholder="Add your review" name="msg">
-      <textarea name="comment" form="usrform">Enter text here...</textarea>
       <input type="hidden" name="RestId" value="<%= restaurant.RestId %>">
+      <textarea name="review" form="red" rows="8" cols="80" placeholder="Add your review"></textarea>
       <!--adding a RestId so that each message can be seperated depending on the restaurant  -->
       <!-- input type hides it from the client side but each time a form is posted the rest id will be posted -->
       <button type="submit">Submit</button>
@@ -56,8 +55,8 @@
     <% for(var i=0; i<piper.length; i++) {%>
         <!-- <making a loop through all of the comments > -->
           <ul>
-            <li><span><%= piper[i].name %></span><br></li>
-          <li><span><%= piper[i].msg %></span><br></li>
+            <li class="feedback"><span><%= piper[i].name %></span><br></li>
+          <li class="feedback"><span><%= piper[i].review %></span><br></li>
         </ul>
         <!-- </section> -->
       <% } %>

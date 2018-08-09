@@ -72,7 +72,7 @@ module.exports = function(app, passport, db) {
 
   // ================================form that reviews are posted thru ====================================================================
   app.post('/detail1', (req, res) => {
-    db.collection('reviews').save({name: req.body.name, msg: req.body.msg, RestId: req.body.RestId}, (err, result) => {
+    db.collection('reviews').save({name: req.body.name, review: req.body.review, RestId: req.body.RestId}, (err, result) => {
       // sends the name the review and the restaurant ID to the database so that each document can be found later on by restaurant ID when I want to render
       if (err) return console.log(err)
       console.log('saved to database')
