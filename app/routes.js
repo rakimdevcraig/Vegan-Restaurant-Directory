@@ -53,7 +53,8 @@ module.exports = function(app, passport, db) {
       //  This query will select all documents in the inventory collection where the nameSearch field exists
     } else {
       nameSearch = {$regex: req.query.search, $options: 'i'}
-      // search by name $options makes it a regex? the 'i' ignores case sensitivity so you can search without having to type all capitals
+      // search by name $regex makes it a regexpression the 'i' is an option  mongo provides
+      // ignores case sensitivity so you can search without having to type all capitals
     }
     let search = { $and: [ {location: { $nearSphere: { $geometry: { type: "Point", coordinates: [ -71.057588, 42.357000 ] }, $maxDistance: 1609 * (req.query.distance ? req.query.distance : 100) } } }, {Name: nameSearch }]};
     //the $and operator allows us to combine queries so we can search by name and by location

@@ -5,6 +5,7 @@ function initMap (){
   var options = {
     zoom: 11,
     center:{lat: 42.3601,lng:-71.0589}
+    // map will be over boston
   }
 
   // new map
@@ -12,6 +13,8 @@ function initMap (){
   google.maps.Map(document.getElementById('map'), options);
 
 
+
+// =========================================Markers==========================================================================================
 
   // Putting all of the restaurants into an array
   var markers = [
@@ -218,7 +221,7 @@ function initMap (){
   ]
 
 
-  // loop through markers array instead of calling the add marker function 50 different times
+  // loop through markers array and call the function once for each iteration instead of calling the function 20 different times
   for(var i = 0; i < markers.length;i++){
     addMarker(markers[i]);
   }
@@ -227,6 +230,7 @@ function initMap (){
   // function for adding a Marker
   function addMarker(props){
     var marker = new google.maps.Marker({
+      // put all of the markers into an array instead of making 50 different markers
       position:props.coords,
       map:map,
       title:props.title,
@@ -245,6 +249,8 @@ function initMap (){
       });
     }
   }
+
+// ============================GeoLocation================================================================================================
 
   // if the user allows the page to track their location
   if (navigator.geolocation) {
@@ -280,27 +286,3 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
   }
-
-  //testing
-
-  var thumbUp = document.getElementsByClassName("fa-thumbs-up");
-
-  Array.from(thumbUp).forEach(function(element) {
-    element.addEventListener('click', function(){
-      const thumbUp = parseFloat(this.parentNode.parentNode.childNodes[3].innerText)
-      fetch('restaurants', {
-        method: 'put',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-          'thumbUp':thumbUp,
-        })
-      })
-      .then(response => {
-        if (response.ok) return response.json()
-      })
-      .then(data => {
-        console.log(data)
-        window.location.reload(true)
-      })
-    });
-  });
