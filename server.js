@@ -13,7 +13,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
 var configDB = require('./config/database.js');
-var geoip2 = require('geoip2');
 var db
 
 // configuration ===============================================================
@@ -26,7 +25,7 @@ mongoose.connect(configDB.url, { useMongoClient: true }, (err, database) => {
 
 
 require('./config/passport')(passport); // pass passport for configuration
-
+// just a testtttttt
 // set up our express application
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
@@ -53,3 +52,6 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 // launch ======================================================================
 app.listen(port);
 console.log('Open Port ' + port);
+
+
+//=============================Geoip======================================================================
