@@ -253,6 +253,7 @@ function initMap (){
 // ============================GeoLocation================================================================================================
 
   // if the user allows the page to track their location
+  let geo = navigator.geolocation
   if (navigator.geolocation) {
     // calls getCurrentPosition
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -261,7 +262,7 @@ function initMap (){
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-      console.log(pos);
+      // console.log(pos);
       // creates a new infoWindow
       infoWindow = new google.maps.InfoWindow;
       // sets the position of the infowindow to your current lng and lat
@@ -286,3 +287,4 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
   }
+// =================================Testing=====================================================

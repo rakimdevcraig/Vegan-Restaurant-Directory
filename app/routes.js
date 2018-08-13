@@ -5,7 +5,7 @@ module.exports = function(app, passport, db) {
   // show the home page
   app.get('/', function(req, res) {
     res.render('index.ejs');
-    console.log(res);
+    // console.log(res);
   });
 
 
