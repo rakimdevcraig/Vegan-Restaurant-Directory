@@ -20,14 +20,7 @@ module.exports = function(app, passport, db) {
 
 
 
-  // testing just to make sure i can render piperi database
-  app.get('/messages', (req, res) => {
-    db.collection('piperi').find().toArray((err, result) => {
-      console.log(err, result)
-      if (err) return console.log(err)
-      res.render('test.ejs', {piperi: result})
-    })
-  })
+
 
 
 
@@ -94,25 +87,8 @@ module.exports = function(app, passport, db) {
 
   // ================================================================================================================================
 
-  // =================================== search ===============================================
-  app.get('/stest', function(req, res) {
-    db.collection('restaurants').find().toArray((err, result) => {
-      // goes into the database collection restaurants and GETS all of the data and turn it into an array
-      if (err) return console.log(err)
-      res.render('searchtest.ejs', {restaurants: result})
-      // renders or displays the information from th
-    })
-  });
-  //----------------------------------------------------------------
 
-
-
-
-
-
-
-
-  // LOGOUT ==============================
+  // LOGOUT ===========================
   app.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/');
