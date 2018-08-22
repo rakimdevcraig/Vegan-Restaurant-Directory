@@ -5,7 +5,7 @@ can identify restaurants close to them. I have also provided a list of all the r
 radius. I've also provided a bit of info about each restaurant along with a link to the their menu.
 
 
-Link to project:https://damp-bastion-50593.herokuapp.com/restaurant
+Link to project:https://damp-bastion-50593.herokuapp.com/
 
 How It's Made: Tech used: HTML, CSS, Javascript, Node, Express, Mongo, Embedded Javascript
 
