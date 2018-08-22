@@ -1,27 +1,11 @@
 module.exports = function(app, passport, db) {
 
-  // normal routes ===============================================================
 
   // show the home page
   app.get('/', function(req, res) {
-    var ip = (req.headers['x-forwarded-for'] || '').split(',').pop() ||
-    req.connection.remoteAddress ||
-    req.socket.remoteAddress ||
-    req.connection.socket.remoteAddress
-    console.log("ip defined" + ip)
-    var iplocation = require('iplocation')
-    iplocation(ip, function (error, ipres) {
-      console.log(ipres)
-      req.session.location = {lat: ipres.latitude, lng: ipres.longitude}
       res.render('index.ejs');
-      // console.log(res);
     });
   });
-
-
-
-
-
 
 
   // ================================renders information for each individual restaurant & renders all of the comments currently ========================================//
@@ -42,8 +26,6 @@ module.exports = function(app, passport, db) {
   // =================================================================================== ========================================//
 
 
-
-
   // ====================Search for restaurant by name and/or by location==============================================================
 
   app.get("/restaurant", function(req, res){
@@ -58,8 +40,7 @@ module.exports = function(app, passport, db) {
       // search by name $regex makes it a regexpression the 'i' is an option  mongo provides
       // ignores case sensitivity so you can search without having to type all capitals
     }
-    let search = { $and: [ {location: { $nearSphere: { $geometry: { type: "Point", coordinates: [ req.session.location.lng || -71.058884 , req.session.location.lat || 42.360081  ] }, $maxDistance: 1609 * (req.query.distance ? req.query.distance : 100) } } }, {Name: nameSearch }]};
-    console.log("longitude from session"+ req.session.lng + "latitude from session"+ req.session.latitude)
+    let search = { $and: [ {location: { $nearSphere: { $geometry: { type: "Point", coordinates: [ -71.058884 , 42.360081  ] }, $maxDistance: 1609 * (req.query.distance ? req.query.distance : 100) } } }, {Name: nameSearch }]};
     //the $and operator allows us to combine queries so we can search by name and by location
     // $nearsphere makes a circle and we get to search for points on an imaginary map which are restaurants and we search for a max distance which is in meters
     // 1609 is in meters and that's 1 mile we give the user the option to search the distance from 1-5 miles from the coordinates which is 50 milk street
