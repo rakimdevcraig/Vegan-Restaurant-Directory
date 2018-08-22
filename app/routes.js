@@ -5,7 +5,7 @@ module.exports = function(app, passport, db) {
   app.get('/', function(req, res) {
       res.render('index.ejs');
     });
-  });
+  
 
 
   // ================================renders information for each individual restaurant & renders all of the comments currently ========================================//
