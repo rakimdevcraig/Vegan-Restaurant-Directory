@@ -1,11 +1,34 @@
 module.exports = function(app, passport, db) {
 
+  // normal routes ===============================================================
 
   // show the home page
   app.get('/', function(req, res) {
+    var ip = (req.headers['x-forwarded-for'] || '').split(',').pop() ||
+    req.connection.remoteAddress ||
+    req.socket.remoteAddress ||
+    req.connection.socket.remoteAddress
+    console.log("ip defined" + ip)
+    var iplocation = require('iplocation')
+    iplocation(ip, function (error, ipres) {
+      console.log(ipres)
+      req.session.location = {lat: ipres.latitude, lng: ipres.longitude}
       res.render('index.ejs');
+      // console.log(res);
     });
-  
+  });
+
+
+
+  // testing just to make sure i can render piperi database
+  app.get('/messages', (req, res) => {
+    db.collection('piperi').find().toArray((err, result) => {
+      console.log(err, result)
+      if (err) return console.log(err)
+      res.render('test.ejs', {piperi: result})
+    })
+  })
+
 
 
   // ================================renders information for each individual restaurant & renders all of the comments currently ========================================//
@@ -26,6 +49,8 @@ module.exports = function(app, passport, db) {
   // =================================================================================== ========================================//
 
 
+
+
   // ====================Search for restaurant by name and/or by location==============================================================
 
   app.get("/restaurant", function(req, res){
@@ -40,7 +65,8 @@ module.exports = function(app, passport, db) {
       // search by name $regex makes it a regexpression the 'i' is an option  mongo provides
       // ignores case sensitivity so you can search without having to type all capitals
     }
-    let search = { $and: [ {location: { $nearSphere: { $geometry: { type: "Point", coordinates: [ -71.058884 , 42.360081  ] }, $maxDistance: 1609 * (req.query.distance ? req.query.distance : 100) } } }, {Name: nameSearch }]};
+    let search = { $and: [ {location: { $nearSphere: { $geometry: { type: "Point", coordinates: [ req.session.location.lng || -71.058884 , req.session.location.lat || 42.360081  ] }, $maxDistance: 1609 * (req.query.distance ? req.query.distance : 100) } } }, {Name: nameSearch }]};
+    console.log("longitude from session"+ req.session.lng + "latitude from session"+ req.session.latitude)
     //the $and operator allows us to combine queries so we can search by name and by location
     // $nearsphere makes a circle and we get to search for points on an imaginary map which are restaurants and we search for a max distance which is in meters
     // 1609 is in meters and that's 1 mile we give the user the option to search the distance from 1-5 miles from the coordinates which is 50 milk street
@@ -68,8 +94,25 @@ module.exports = function(app, passport, db) {
 
   // ================================================================================================================================
 
+  // =================================== search ===============================================
+  app.get('/stest', function(req, res) {
+    db.collection('restaurants').find().toArray((err, result) => {
+      // goes into the database collection restaurants and GETS all of the data and turn it into an array
+      if (err) return console.log(err)
+      res.render('searchtest.ejs', {restaurants: result})
+      // renders or displays the information from th
+    })
+  });
+  //----------------------------------------------------------------
 
-  // LOGOUT ===========================
+
+
+
+
+
+
+
+  // LOGOUT ==============================
   app.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/');
