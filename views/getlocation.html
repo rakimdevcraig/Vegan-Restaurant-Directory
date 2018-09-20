@@ -1,12 +1,19 @@
 <script>
+console.log('starting geolocation...')
 if ("geolocation" in navigator) {
 /* geolocation is available */
+  console.log("geolocating...");
   navigator.geolocation.getCurrentPosition(function(position) {
+    console.log("got location, now redirecting to /?");
     window.location.replace('/?lat=' + position.coords.latitude + '&lon=' + position.coords.longitude);
-});
+},
+  function(error) {
+    console.log("error getting location");
+    window.location.replace('/?nolocation=true');
+  });
 } else {
   console.log("geolocation not available");
 /* geolocation IS NOT available */
 }
 </script>
-Gett
+Getting location...
