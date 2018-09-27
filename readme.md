@@ -6,6 +6,7 @@ radius. I've also provided a bit of info about each restaurant along with a link
 
 
 Link to project:https://damp-bastion-50593.herokuapp.com/
+Video Breakdown:https://soapbox.wistia.com/videos/PgGY0bghAs
 
 How It's Made: Tech used: HTML, CSS, Javascript, Node, Express, Mongo, Embedded Javascript
 
