@@ -7,6 +7,8 @@ radius. I've also provided a bit of info about each restaurant along with a link
 
 Link to project:https://damp-bastion-50593.herokuapp.com/
 
+Video Breakdown:https://soapbox.wistia.com/videos/PgGY0bghAs
+
 How It's Made: Tech used: HTML, CSS, Javascript, Node, Express, Mongo, Embedded Javascript
 
 I started off by adding all of the restaurants and info such as menu, hours etc to a database, from there I worked on getting my search feature to work where you could search for restaurants by name
