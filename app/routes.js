@@ -73,7 +73,7 @@ module.exports = function(app, passport, db) {
     } else {
       console.log("WARNING: req.session.location is undefined")
     }
-    let search = { $and: [ {location: { $nearSphere: { $geometry: { type: "Point", coordinates: [ lng, lat  ] }, $maxDistance: 1609 * (req.query.distance ? req.query.distance : 100) } } }, {Name: nameSearch }]};
+    let search = { $and: [ {location: { $nearSphere: { $geometry: { type: "Point", coordinates: [ -71.058884, 42.360081] }, $maxDistance: 1609 * (req.query.distance ? req.query.distance : 100) } } }, {Name: nameSearch }]};
     console.log("longitude from session"+ req.session.lng + "latitude from session"+ req.session.latitude)
     //the $and operator allows us to combine queries so we can search by name and by location
     // $nearsphere makes a circle and we get to search for points on an imaginary map which are restaurants and we search for a max distance which is in meters
